@@ -43,5 +43,7 @@ return function (ContainerBuilder $containerBuilder) {
 
     $container['ToDoHomeController'] = DI\Factory('\App\Factories\ToDoHomeControllerFactory');
 
+    $container['CompletedListController'] = DI\Factory('\App\Factories\CompletedListControllerFactory');
+
     $containerBuilder->addDefinitions($container);
 };

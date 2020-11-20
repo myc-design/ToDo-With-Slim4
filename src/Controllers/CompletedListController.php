@@ -1,15 +1,15 @@
 <?php
 namespace App\Controllers;
-use App\Models\TodoModel;
+use App\Models\ToDoModel;
 use Slim\Views\PhpRenderer;
 use App\Abstracts\Controller;
 
-class ToDoHomeController extends Controller
+class CompletedListController extends Controller
 {
     private $model;
     private $renderer;
 
-    public  function __construct(TodoModel $model, PhpRenderer $renderer)
+    public  function __construct(ToDoModel $model, PhpRenderer $renderer)
     {
      $this->model = $model;
      $this->renderer = $renderer;    
@@ -17,12 +17,9 @@ class ToDoHomeController extends Controller
 
     public function __invoke($request, $response, $args)
     {
-        $toDos = $this->model->getAllToDos();
+        $toDos = $this->model->getCompletedToDos();
         $data = ['toDos'=>$toDos];
 
- ?>
- <pre><?php print_r($data); ?></pre><?php
-
-        return $this->renderer->render($response, "index.php", $data); 
+        return $this->renderer->render($response, "completed.php", $data); 
     }
 }

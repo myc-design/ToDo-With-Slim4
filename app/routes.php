@@ -7,12 +7,24 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 return function (App $app) {
     $container = $app->getContainer();
 
-    // $app->get('/', function ($request, $response, $args) use ($container) {
-    //     $renderer = $container->get('renderer');
-    //     return $renderer->render($response, "index.php", $args);
-    // });
+    //Get all lists from todo database
+    $app->get('/', 'ToDoHomeController');
 
-$app->get('/', 'ToDoHomeController');
+
+    //Button click->post param in body request
+    //Use this data to call the CompletedListController
+    //Get completed lists from the db
+    //Redirect to home page to call ToDoHomeController
+    //use
+
+    $app->get('/completed', 'CompletedListController');
+
+
+
+    //Add to list when AddMoreStuff button clicked
+    //Add form data to the db
+    //redirect to home page to retrieve all the lists
+    $app->post('/', 'AddToListController');
 
 
 };

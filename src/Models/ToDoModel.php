@@ -10,13 +10,20 @@ class ToDoModel
         $this->db = $db; 
     }
     
-    public function getUncompletedToDos(): array
+    public function getAllToDos(): array
     {
         $query = $this->db->prepare('SELECT * FROM `toDos`');
         $query->execute();
         return $query->fetchAll();
     }
     
+    public function getCompletedToDos():array
+    {
+        // $query = $this->db->prepare('SELECT * FROM `toDos` WHERE completed="1"');
+        $query = $this->db->prepare('SELECT * FROM `toDos` WHERE completed="1"');
+        $query->execute();
+        return $query->fetchAll();
+    }
     
 }
 
