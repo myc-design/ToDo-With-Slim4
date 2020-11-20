@@ -2,32 +2,37 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Slim 4</title>
-    <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-    <style>
-        body {
-            margin: 50px 0 0 0;
-            padding: 0;
-            width: 100%;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            text-align: center;
-            color: #aaa;
-            font-size: 18px;
-        }
-
-        h1 {
-            color: #719e40;
-            letter-spacing: -3px;
-            font-family: 'Lato', sans-serif;
-            font-size: 100px;
-            font-weight: 200;
-            margin-bottom: 0;
-        }
-    </style>
+    <title>My Slim To Do App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">   
+    
 </head>
 <body>
-<h1>Slim</h1>
-<div>a microframework for PHP</div>
-    <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
+    <h1>Never Ending List</h1>
+        <div class="container">
+            <form action="" method="POST">
+                <button type="submit">Add More Stuff</button>
+                <input type="text" name="title" id="title" value="Title">
+                <input type="text" name="description" id="description" value="Description">
+                    <?php foreach($toDos as $toDo){ ?>
+                    <li> <?php echo "{$toDo['title']} -  {$toDo['description']}"; ?> 
+                    <input type="checkbox" id="id" name="checked[]" value="checked"
+                      <?php if($toDo['completed']) echo 'checked="checked"';?> />
+                    </li>
+                    <?php } ?>
+            </form>
+
+            <form action="" method="POST">
+                <div class="buttons">    
+                    <button type="submit" name="completed" value="completed">
+                    <a href="completed">Finished Tasks</a></button>
+                    <button type="submit" name="unfinished" value="unfinished">Not Done Yet</button>
+                </div>
+            </form>
+        </div>
 </body>
 </html>
+
+
+
