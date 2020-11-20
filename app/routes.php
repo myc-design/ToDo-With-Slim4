@@ -24,7 +24,7 @@ return function (App $app) {
     //Add to list when AddMoreStuff button clicked
     //Add form data to the db
     //redirect to home page to retrieve all the lists
-    $app->post('/', 'AddToListController');
+    $app->post('/', 'AddToDosController');
 
 
 };

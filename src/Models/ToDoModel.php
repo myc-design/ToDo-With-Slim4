@@ -19,12 +19,22 @@ class ToDoModel
     
     public function getCompletedToDos():array
     {
-        // $query = $this->db->prepare('SELECT * FROM `toDos` WHERE completed="1"');
-        $query = $this->db->prepare('SELECT * FROM `toDos` WHERE completed="1"');
+        $query = $this->db->prepare('SELECT * FROM `todos` WHERE completed="1"');
         $query->execute();
         return $query->fetchAll();
     }
-    
+
+    public function addToDos($title, $description):array
+    {
+        $query = $this->db->prepare('INSERT INTO `todos` (title, description, completed) VALUES (:title, :description, :completed);');
+        $query->bindParam(':title', $title);
+        $query->bindParam(':description', $description);
+        $query->bindParam(':completed', $completed);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+
 }
 
 ?>

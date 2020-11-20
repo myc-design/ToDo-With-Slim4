@@ -15,7 +15,7 @@
 
             <!-- Add to form -->
 
-                <button type="submit">Add More Stuff</button>
+                <input type="submit">Add More Stuff</input>
                 <input type="text" name="title" id="title" value="Title">
                 <input type="text" name="description" id="description" value="Description">
 
@@ -26,7 +26,7 @@
                     <input type="checkbox" id="id" name="checked[]" value="checked"
                       <?php if($toDo['completed']) echo 'checked="checked"';?> />
                     </li>
-                    <?php } ?>
+                    <?php } ?> 
             </form>
 
             <form action="" method="GET">

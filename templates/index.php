@@ -15,7 +15,7 @@
 
             <!-- Add to form -->
 
-                <button type="submit">Add More Stuff</button>
+                <input type="submit" value="Add More Stuff">
                 <input type="text" name="title" id="title" value="Title">
                 <input type="text" name="description" id="description" value="Description">
 
@@ -29,7 +29,7 @@
                     <?php } ?>
             </form>
 
-            <form action="" method="GET">
+            <form action="" method="POST">
                 <div class="buttons">    
                     <button type="submit" name="completed" value="completed">
                     <a href="completed">Finished Tasks</a></button>
